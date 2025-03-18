@@ -5,6 +5,8 @@ const dotenv = require('dotenv');
 const userRoutes = require('./routes/userRoutes');
 const medicalRecordRoutes = require('./routes/medicalRecordRoutes');
 
+const consultationRoutes = require('./routes/consultationRoutes');
+
 
 // 加载环境变量
 dotenv.config();
@@ -15,6 +17,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用咨询路由
+app.use('/api/consultations', consultationRoutes);
 
 // 使用用户路由
 app.use('/api/users', userRoutes);

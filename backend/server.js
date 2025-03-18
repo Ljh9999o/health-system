@@ -7,6 +7,8 @@ const medicalRecordRoutes = require('./routes/medicalRecordRoutes');
 
 const consultationRoutes = require('./routes/consultationRoutes');
 
+const pointRoutes = require('./routes/pointRoutes');
+
 
 // 加载环境变量
 dotenv.config();
@@ -17,6 +19,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用积分路由
+app.use('/api/points', pointRoutes);
 
 // 使用咨询路由
 app.use('/api/consultations', consultationRoutes);

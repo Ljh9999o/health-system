@@ -15,6 +15,8 @@ const healthPlanRoutes = require('./routes/healthPlanRoutes');
 
 const checkupReminderRoutes = require('./routes/checkupReminderRoutes');
 
+const reviewRoutes = require('./routes/reviewRoutes');
+
 // 加载环境变量
 dotenv.config();
 
@@ -24,6 +26,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用评价路由
+app.use('/api/reviews', reviewRoutes);
 
 // 使用体检提醒路由
 app.use('/api/checkup-reminders', checkupReminderRoutes);

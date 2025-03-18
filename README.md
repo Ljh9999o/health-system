@@ -45,3 +45,6 @@ node backend/server.js
 ## 使用方法
 1. 访问 `http://localhost:5000/`，查看首页。
 2. 使用 Postman 测试 API。
+
+## 许可证
+本项目基于 MIT 许可证。

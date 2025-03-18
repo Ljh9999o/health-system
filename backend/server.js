@@ -17,6 +17,8 @@ const checkupReminderRoutes = require('./routes/checkupReminderRoutes');
 
 const reviewRoutes = require('./routes/reviewRoutes');
 
+const appointmentRoutes = require('./routes/appointmentRoutes');
+
 // 加载环境变量
 dotenv.config();
 
@@ -26,6 +28,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用预约路由
+app.use('/api/appointments', appointmentRoutes);
 
 // 使用评价路由
 app.use('/api/reviews', reviewRoutes);

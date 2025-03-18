@@ -9,6 +9,7 @@ const consultationRoutes = require('./routes/consultationRoutes');
 
 const pointRoutes = require('./routes/pointRoutes');
 
+const announcementRoutes = require('./routes/announcementRoutes');
 
 // 加载环境变量
 dotenv.config();
@@ -19,6 +20,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用公告路由
+app.use('/api/announcements', announcementRoutes);
 
 // 使用积分路由
 app.use('/api/points', pointRoutes);

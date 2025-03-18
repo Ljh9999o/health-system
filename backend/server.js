@@ -11,6 +11,8 @@ const pointRoutes = require('./routes/pointRoutes');
 
 const announcementRoutes = require('./routes/announcementRoutes');
 
+const healthPlanRoutes = require('./routes/healthPlanRoutes');
+
 // 加载环境变量
 dotenv.config();
 
@@ -20,6 +22,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用健康计划路由
+app.use('/api/health-plans', healthPlanRoutes);
 
 // 使用公告路由
 app.use('/api/announcements', announcementRoutes);

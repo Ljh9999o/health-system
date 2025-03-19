@@ -11,3 +11,5 @@ router.get('/:doctor_id', scheduleController.getSchedulesByDoctorId);
 
 // 删除排班
 router.delete('/:id', scheduleController.deleteSchedule);
+
+module.exports = router;

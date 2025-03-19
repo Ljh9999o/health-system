@@ -19,6 +19,8 @@ const reviewRoutes = require('./routes/reviewRoutes');
 
 const appointmentRoutes = require('./routes/appointmentRoutes');
 
+const dietPlanRoutes = require('./routes/dietPlanRoutes');
+
 // 加载环境变量
 dotenv.config();
 
@@ -28,6 +30,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用饮食计划路由
+app.use('/api/diet-plans', dietPlanRoutes);
 
 // 使用预约路由
 app.use('/api/appointments', appointmentRoutes);

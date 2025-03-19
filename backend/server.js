@@ -31,6 +31,8 @@ const healthReportRoutes = require('./routes/healthReportRoutes');
 
 const doctorWorkloadRoutes = require('./routes/doctorWorkloadRoutes');
 
+const healthTrendRoutes = require('./routes/healthTrendRoutes');
+
 // 加载环境变量
 dotenv.config();
 
@@ -40,6 +42,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用健康趋势分析路由
+app.use('/api/health-trends', healthTrendRoutes);
 
 // 使用工作量统计路由
 app.use('/api/doctor-workload', doctorWorkloadRoutes);

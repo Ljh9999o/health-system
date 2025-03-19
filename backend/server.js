@@ -25,6 +25,8 @@ const reminderRoutes = require('./routes/reminderRoutes');
 
 const healthDataRoutes = require('./routes/healthDataRoutes');
 
+const scheduleRoutes = require('./routes/scheduleRoutes');
+
 // 加载环境变量
 dotenv.config();
 
@@ -34,6 +36,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用排班路由
+app.use('/api/schedules', scheduleRoutes);
 
 // 使用健康数据路由
 app.use('/api/health-data', healthDataRoutes);

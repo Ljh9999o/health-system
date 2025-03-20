@@ -39,6 +39,8 @@ const healthDataExportRoutes = require('./routes/healthDataExportRoutes');
 
 const scheduleOptimizationRoutes = require('./routes/scheduleOptimizationRoutes');
 
+const performanceReportRoutes = require('./routes/performanceReportRoutes');
+
 // 加载环境变量
 dotenv.config();
 
@@ -48,6 +50,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+//使用绩效报告生成路由
+app.use('/api/performance-reports', performanceReportRoutes);
 
 // 使用排班优化路由
 app.use('/api/schedule-optimization', scheduleOptimizationRoutes);

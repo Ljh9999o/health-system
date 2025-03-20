@@ -39,9 +39,12 @@ const healthDataExportRoutes = require('./routes/healthDataExportRoutes');
 
 const scheduleOptimizationRoutes = require('./routes/scheduleOptimizationRoutes');
 
+const healthVisualizationRoutes = require('./routes/healthVisualizationRoutes');
+
 const performanceReportRoutes = require('./routes/performanceReportRoutes');
 
 const healthDataImportRoutes = require('./routes/healthDataImportRoutes');
+
 
 
 // 加载环境变量
@@ -59,6 +62,9 @@ app.use('/api/health-data-import', healthDataImportRoutes);
 
 // 使用绩效报告生成路由
 app.use('/api/performance-reports', performanceReportRoutes);
+
+// 使用健康数据可视化路由
+app.use('/api/health-visualization', healthVisualizationRoutes);
 
 // 使用排班优化路由
 app.use('/api/schedule-optimization', scheduleOptimizationRoutes);

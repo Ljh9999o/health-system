@@ -35,6 +35,8 @@ const healthTrendRoutes = require('./routes/healthTrendRoutes');
 
 const performanceEvaluationRoutes = require('./routes/performanceEvaluationRoutes');
 
+const healthDataExportRoutes = require('./routes/healthDataExportRoutes');
+
 // 加载环境变量
 dotenv.config();
 
@@ -44,6 +46,9 @@ const app = express();
 // 使用中间件
 app.use(cors());
 app.use(express.json());
+
+// 使用健康数据导出路由
+app.use('/api/health-data-export', healthDataExportRoutes);
 
 // 使用绩效评估路由
 app.use('/api/performance-evaluations', performanceEvaluationRoutes);

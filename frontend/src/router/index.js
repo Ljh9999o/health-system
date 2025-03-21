@@ -5,7 +5,8 @@ import Profile from '../views/Profile.vue'
 
 const routes = [
   { path: '/', component: Login },
-  { path: '/profile', component: Profile }
+  { path: '/profile', component: Profile },
+  { path: '/health-plans', component: () => import('@/views/HealthPlan.vue') }
 ]
 
 const router = createRouter({

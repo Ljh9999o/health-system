@@ -1,4 +1,8 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
 
@@ -49,9 +53,6 @@ const healthDataImportRoutes = require('./routes/healthDataImportRoutes');
 
 // 加载环境变量
 dotenv.config();
-
-// 创建 Express 应用
-const app = express();
 
 // 使用中间件
 app.use(cors());

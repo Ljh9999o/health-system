@@ -1,7 +1,5 @@
 const mysql = require('mysql2');
-const dotenv = require('dotenv');
-
-dotenv.config();
+require('dotenv').config(); // 确保环境变量已加载
 
 // 创建数据库连接池
 const pool = mysql.createPool({

@@ -40,10 +40,21 @@
           <span>近期健康计划</span>
         </div>
       </template>
+      <el-button type="primary" @click="router.push('/health-plans')">查看全部计划</el-button>
       <el-table :data="plans" style="width: 100%">
-        <el-table-column prop="plan_name" label="计划名称" width="180" />
-        <el-table-column prop="start_date" label="开始日期" />
-        <el-table-column prop="end_date" label="结束日期" />
+        <el-table-column prop="plan_name" label="计划名称" width="300" />
+
+        <el-table-column prop="start_date" label="开始日期">
+          <template #default="{ row }">
+            {{ formatDate(row.start_date) }}
+          </template>
+        </el-table-column>
+
+        <el-table-column prop="end_date" label="结束日期">
+          <template #default="{ row }">
+            {{ formatDate(row.end_date) }}
+          </template>
+        </el-table-column>
       </el-table>
     </el-card>
   </div>
@@ -61,8 +72,14 @@ import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { ElMessage } from 'element-plus';
 import { useRouter } from 'vue-router';
+import dayjs from 'dayjs';
 
 const router = useRouter();
+
+// 日期格式化函数
+const formatDate = (date) => {
+  return dayjs(date).format('YYYY-MM-DD');
+};
 
 // 用户信息（临时模拟数据，实际应从登录后获取）
 const user = ref({

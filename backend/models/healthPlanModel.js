@@ -3,11 +3,15 @@ const db = require('../utils/db');
 class HealthPlan {
     static async create(plan) {
         const { user_id, plan_name, description, start_date, end_date } = plan;
-        const [result] = await db.execute(
+        try {
+          const [result] = await db.execute(
             'INSERT INTO health_plans (user_id, plan_name, description, start_date, end_date) VALUES (?, ?, ?, ?, ?)',
             [user_id, plan_name, description, start_date, end_date]
-        );
-        return result;
+          );
+          return result;
+        } catch (error) {
+          throw error;
+        }
     }
 
     static async findByUserId(user_id) {

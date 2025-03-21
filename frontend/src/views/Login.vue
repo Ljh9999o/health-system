@@ -56,7 +56,9 @@ const loading = ref(false);
 const handleLogin = async () => {
   try {
     loading.value = true;
-    await axios.post('/api/users/login', form.value);
+    const res = await axios.post('/api/users/login', form.value);
+    // 保存用户ID到 localStorage
+    localStorage.setItem('user_id', res.data.user.id);
     ElMessage.success('登录成功！');
     router.push('/profile');
   } catch (error) {

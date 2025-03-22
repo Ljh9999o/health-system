@@ -23,6 +23,17 @@ const reviewController = {
         }
     },
 
+     // 查询用户的评价历史
+    async getReviewsByUserId(req, res) {
+        try {
+            const { user_id } = req.params;
+            const reviews = await Review.findByUserId(user_id); // 需要模型支持此方法
+            res.status(200).json({ message: '查询成功', reviews });
+        } catch (error) {
+            res.status(500).json({ message: '查询失败', error });
+        }
+    },
+
     // 删除评价
     async deleteReview(req, res) {
         try {

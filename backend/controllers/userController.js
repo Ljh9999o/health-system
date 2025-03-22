@@ -1,3 +1,4 @@
+const db = require('../utils/db');
 const User = require('../models/userModel');
 
 const userController = {
@@ -23,6 +24,18 @@ const userController = {
             res.status(200).json({ message: '登录成功', user });
         } catch (error) {
             res.status(500).json({ message: '登录失败', error });
+        }
+    },
+
+    // 获取医生列表
+    async getDoctors(req, res) {
+        try {
+          const [rows] = await db.execute(
+            'SELECT id, name FROM users WHERE role = "doctor"' // 确保 role 字段值正确
+          );
+          res.status(200).json({ doctors: rows });
+        } catch (error) {
+          res.status(500).json({ message: '获取医生列表失败', error: error.message });
         }
     }
 };

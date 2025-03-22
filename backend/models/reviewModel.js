@@ -12,6 +12,14 @@ class Review {
 
     static async findByDoctorId(doctor_id) {
         const [rows] = await db.execute('SELECT * FROM reviews WHERE doctor_id = ?', [doctor_id]);
+        return rows.map(row => ({ ...row, rating: Number(row.rating) }));
+    }
+
+    static async findByUserId(user_id) {
+        const [rows] = await db.execute(
+            'SELECT * FROM reviews WHERE user_id = ?',
+            [user_id]
+        );
         return rows;
     }
 

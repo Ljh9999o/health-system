@@ -1,12 +1,13 @@
 const express = require('express');
-const userController = require('../controllers/userController');
-
 const router = express.Router();
+const userController = require('../controllers/userController');
 
 // 用户注册
 router.post('/register', userController.register);
 
 // 用户登录
 router.post('/login', userController.login);
+
+router.get('/doctors', userController.getDoctors);
 
 module.exports = router;

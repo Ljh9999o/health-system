@@ -11,6 +11,8 @@
       </div>
     </el-card>
 
+    <el-button @click="$router.push('/appointments')">预约医生</el-button>
+
     <!-- 病例管理模块 -->
     <el-card class="section-card">
       <template #header>
@@ -56,6 +58,28 @@
           </template>
         </el-table-column>
       </el-table>
+    </el-card>
+
+    <!-- 评价管理入口 -->
+    <el-card class="section-card">
+      <template #header>
+        <div class="section-title">
+          <i class="el-icon-chat-line-round"></i>
+          <span>我的评价</span>
+        </div>
+      </template>
+      <el-button @click="$router.push('/reviews')">查看所有评价</el-button>
+    </el-card>
+
+    <!-- 预约管理入口 -->
+    <el-card class="section-card">
+      <template #header>
+        <div class="section-title">
+          <i class="el-icon-date"></i>
+          <span>我的预约</span>
+        </div>
+      </template>
+      <el-button @click="$router.push('/appointments')">查看所有预约</el-button>
     </el-card>
   </div>
 </template>
